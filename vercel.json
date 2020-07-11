@@ -31,6 +31,7 @@
       "status": 302
     },
     { "src": "/goto", "dest": "https://goto.casca.vercel.app/", "status": 200 },
+    { "src": "/goto/", "dest": "https://goto.casca.vercel.app/", "status": 200 },
     {
       "src": "/goto/(?<id>[^/]+)",
       "status": 302,
