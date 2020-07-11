@@ -1,3 +1,6 @@
+[![Hosted at Vercel.com](https://img.shields.io/badge/hosted%20at-vercel.com-black?logo=zeit&logoColor=black&style=flat-square)](https://vercel.com/)
+[![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m785547332-9c583e72e19f01645fd3c8a7?style=flat-square)](http://uptimerobot.com/)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
