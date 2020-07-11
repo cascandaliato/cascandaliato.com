@@ -1,0 +1,3 @@
+{
+  "routes": [{ "src": "/goto", "dest": "https://goto.casca.vercel.app/" }]
+}
