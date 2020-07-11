@@ -1,12 +1,24 @@
 {
   "routes": [
-    { "src": "/goto/css/(.*)", "dest": "https://goto.casca.vercel.app/css/$1", "status": 302 },
-    { "src": "/goto/img/(.*)", "dest": "https://goto.casca.vercel.app/img/$1", "status": 302 },
-    { "src": "/goto/js/(.*)", "dest": "https://goto.casca.vercel.app/js/$1", "status": 302 },
+    {
+      "src": "/goto/css/(.*)",
+      "status": 302,
+      "headers": { "Location": "https://goto.casca.vercel.app/css/$1" }
+    },
+    {
+      "src": "/goto/img/(.*)",
+      "status": 302,
+      "headers": { "Location": "https://goto.casca.vercel.app/img/$1" }
+    },
+    {
+      "src": "/goto/js/(.*)",
+      "status": 302,
+      "headers": { "Location": "https://goto.casca.vercel.app/js/$1" }
+    },
     {
       "src": "/goto/favicon.ico",
       "dest": "https://goto.casca.vercel.app/favicon.ico",
-      "status": 302
+      "status": 200
     },
     { "src": "/goto", "dest": "https://goto.casca.vercel.app/", "status": 200 }
   ]
