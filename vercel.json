@@ -33,8 +33,8 @@
     { "src": "/goto", "dest": "https://goto.casca.vercel.app/", "status": 200 },
     {
       "src": "/goto/(.*)",
-      "status": 200,
-      "dest": "https://goto.casca.vercel.app/api/redirect/$1"
+      "status": 302,
+      "headers": { "Location": "https://goto.casca.vercel.app/api/redirect/$1" }
     }
   ]
 }
