@@ -2,17 +2,17 @@
   "routes": [
     {
       "src": "/goto/css/(.*)",
-      "status": 302,
+      "status": 200,
       "headers": { "Location": "https://goto.casca.vercel.app/css/$1" }
     },
     {
       "src": "/goto/img/(.*)",
-      "status": 302,
+      "status": 200,
       "headers": { "Location": "https://goto.casca.vercel.app/img/$1" }
     },
     {
       "src": "/goto/js/(.*)",
-      "status": 302,
+      "status": 200,
       "headers": { "Location": "https://goto.casca.vercel.app/js/$1" }
     },
     {
