@@ -14,9 +14,9 @@
   ],
   "redirects": [
     {
-      "source": "/goto/(?<slug>(?!favicon\\.ico)[^/]+)",
+      "source": "/goto/((?!favicon\\.ico)[^/]+)",
       "permanent": false,
-      "destination": "https://goto.casca.vercel.app/api/redirect/$slug"
+      "destination": "https://goto.casca.vercel.app/api/redirect/$1"
     }
   ]
 }
