@@ -6,7 +6,6 @@
       "status": 307,
       "headers": { "Location": "/goto$1" }
     },
-
     {
       "src": "/goto/api/shorten",
       "status": 302,
@@ -18,19 +17,9 @@
       "headers": { "Location": "https://goto.casca.vercel.app/api/stats" }
     },
     {
-      "src": "/goto/css/(.*)",
+      "src": "/goto/(css|img|js)/(.*)",
       "status": 302,
-      "headers": { "Location": "https://goto.casca.vercel.app/css/$1" }
-    },
-    {
-      "src": "/goto/img/(.*)",
-      "status": 302,
-      "headers": { "Location": "https://goto.casca.vercel.app/img/$1" }
-    },
-    {
-      "src": "/goto/js/(.*)",
-      "status": 302,
-      "headers": { "Location": "https://goto.casca.vercel.app/js/$1" }
+      "headers": { "Location": "https://goto.casca.vercel.app/$1/$2" }
     },
     {
       "src": "/goto/favicon.ico",
