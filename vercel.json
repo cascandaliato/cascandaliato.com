@@ -10,7 +10,7 @@
     {
       "src": "/goto/((.*)/)",
       "status": 302,
-      "headers": { "Location": "/goto/foo/$2" },
+      "headers": { "Location": "/goto/$2" },
       "continue": true
     },
     {
