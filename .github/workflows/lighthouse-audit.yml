@@ -1,12 +1,14 @@
 name: Lighthouse Audit
 
-on: push
+on: deployment_status
 
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: master
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v3
         with:
