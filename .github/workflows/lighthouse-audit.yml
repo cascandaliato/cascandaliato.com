@@ -19,17 +19,3 @@ jobs:
           urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
-      - run: cp ${{steps.LHCIAction.outputs.resultsPath}}/lhr*.json $GITHUB_WORKSPACE/lighthouse-report.json
-        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-      - name: Commit files
-        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-        run: |
-          git config --local user.email "8927157+casca@users.noreply.github.com"
-          git config --local user.name "casca"
-          git add lighthouse-report.json
-          git commit -m "Update lighthouse report"
-      - name: Push changes
-        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
