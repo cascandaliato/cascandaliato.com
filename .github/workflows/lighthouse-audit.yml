@@ -10,6 +10,7 @@ jobs:
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
         uses: actions/checkout@v2
         with:
+          repository: 'casca/lighthouse-reports'
           ref: master
       - name: Audit URLs using Lighthouse 💡🏡
         id: LHCIAction
@@ -19,3 +20,17 @@ jobs:
           urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
+      - run: cp ${{steps.LHCIAction.outputs.resultsPath}}/lhr*.json $GITHUB_WORKSPACE/casca.dev.json
+        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
+      - name: Commit files
+        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
+        run: |
+          git config --local user.name "casca"
+          git config --local user.email "8927157+casca@users.noreply.github.com"
+          git add casca.dev.json
+          git commit -m "Update lighthouse report for casca.dev"
+      - name: Push changes
+        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
