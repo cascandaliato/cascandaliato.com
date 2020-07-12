@@ -14,7 +14,7 @@
   ],
   "redirects": [
     {
-      "source": "/goto/(?!favicon\\.ico/?)(?<slug>[^/]+)",
+      "source": "/goto/(?<slug>(?!favicon\\.ico)[^/]+)",
       "permanent": false,
       "destination": "https://goto.casca.vercel.app/api/redirect/$slug"
     }
