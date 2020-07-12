@@ -12,9 +12,11 @@ jobs:
         with:
           ref: master
       - name: Audit URLs using Lighthouse 💡🏡
+        id: lhci_audit
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
         uses: treosh/lighthouse-ci-action@v3
         with:
           urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
+      - run: echo ${{ steps.lhci_audit.outputs.manifest }}
