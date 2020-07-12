@@ -19,5 +19,5 @@ jobs:
           urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
-      - run: ls -l ${{steps.LHCIAction.outputs.manifest}}
+      - run: echo ${{steps.LHCIAction.outputs.resultsPath}}
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
