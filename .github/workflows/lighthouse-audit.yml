@@ -19,14 +19,9 @@ jobs:
           urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
-      - name: Write File
-        uses: DamianReeves/write-file-action@v1.0
-        with:
-          path: ${{ env.home }}/manifest
-          contents: echo foo
-      - run: echo ${{ steps.LHCIAction.outputs.manifest }}
+      - run: echo ${{ steps.LHCIAction.outputs.resultsPath }}
       - name: Archive code coverage results
         uses: actions/upload-artifact@v1
         with:
           name: test
-          path: ${{ env.home }}/manifest
+          path: ${{ steps.LHCIAction.outputs.resultsPath }}
