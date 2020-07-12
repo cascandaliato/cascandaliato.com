@@ -8,9 +8,9 @@
       "continue": true
     },
     {
-      "src": "/goto/(.*)/",
+      "src": "/goto/(.*/)",
       "status": 302,
-      "headers": { "Location": "/goto/$1" }
+      "headers": { "Location": "/goto/foo/$1" }
     },
     {
       "src": "/goto/api/shorten",
