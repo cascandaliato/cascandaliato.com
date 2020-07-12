@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/(goto(?:/.*)?)",
-      "destination": "https://goto.casca.vercel.app"
+      "destination": "https://goto.casca.vercel.app/$1"
     }
   ],
   "redirects": [
