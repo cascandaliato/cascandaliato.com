@@ -23,7 +23,7 @@
       "headers": { "Location": "https://goto.casca.vercel.app/api/redirect/$slug" }
     },
     {
-      "src": "/goto/",
+      "src": "/goto",
       "dest": "https://goto.casca.vercel.app",
       "status": 200
     },
