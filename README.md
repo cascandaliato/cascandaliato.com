@@ -1,6 +1,7 @@
 # [casca.dev](https://casca.dev)
 
 [![Deploy to casca.dev](https://img.shields.io/github/deployments/casca/casca.dev/Production?label=deploy%20to%20casca.dev&logo=dependabot&style=flat-square)](https://casca.dev)
+[![Lighthouse](https://img.shields.io/badge/dynamic/json?label=lighthouse&query=average&url=https%3A%2F%2Flighthouse-reports-parser.casca.vercel.app%2Fapi%2Ffor-the-badge%3Furl%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fcasca%2Flighthouse-reports%2Fmaster%2Fcasca.dev.json&logo=lighthouse&style=flat-square)](https://github.com/casca/lighthouse-reports/blob/master/casca.dev.json)
 [![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m785547332-9c583e72e19f01645fd3c8a7?style=flat-square&logo=clockify&logoColor=white)](http://uptimerobot.com)
 [![Hosted at vercel.com](https://img.shields.io/badge/hosted%20at-vercel.com-black?logo=zeit&logoColor=black&style=flat-square)](https://vercel.com)
 [![Powered by Next.js](https://img.shields.io/badge/powered%20by-Next.js-black?logo=Next.js&style=flat-square)](https://nextjs.org)
