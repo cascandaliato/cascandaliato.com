@@ -4,17 +4,17 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "src": "/goto",
+      "source": "/goto",
       "destination": "https://goto.casca.vercel.app"
     },
     {
-      "src": "/goto/(.*)",
+      "source": "/goto/(.*)",
       "destination": "https://goto.casca.vercel.app/$1"
     }
   ],
   "redirects": [
     {
-      "src": "/goto/(?!favicon\\.ico/?)(?<slug>[^/]+)",
+      "source": "/goto/(?!favicon\\.ico/?)(?<slug>[^/]+)",
       "permanent": false,
       "destination": "https://goto.casca.vercel.app/api/redirect/$slug"
     }
