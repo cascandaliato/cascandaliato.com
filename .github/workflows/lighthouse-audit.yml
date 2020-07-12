@@ -19,7 +19,7 @@ jobs:
           urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
-      - run: cp ${{steps.LHCIAction.outputs.resultsPath}}/lhr*.json $HOME/lighhouse-results.json
+      - run: cp ${{steps.LHCIAction.outputs.resultsPath}}/lhr*.json $GITHUB_WORKSPACE/lighthouse-results.json
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-      - run: ls -l $HOME
+      - run: ls -l $GITHUB_WORKSPACE
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
