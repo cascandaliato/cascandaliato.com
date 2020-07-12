@@ -30,10 +30,15 @@
       "dest": "https://goto.casca.vercel.app/favicon.ico",
       "status": 302
     },
-    { "src": "/goto", "dest": "https://goto.casca.vercel.app/", "status": 200 },
-    { "src": "/goto/", "dest": "https://goto.casca.vercel.app/", "status": 200 },
+    { "src": "/goto", "methods": ["GET"], "dest": "https://goto.casca.vercel.app/", "status": 200 },
     {
-      "src": "/goto/abc",
+      "src": "/goto/",
+      "methods": ["GET"],
+      "dest": "https://goto.casca.vercel.app/",
+      "status": 200
+    },
+    {
+      "src": "/goto",
       "methods": ["POST"],
       "status": 307,
       "headers": { "Location": "https://goto.casca.vercel.app/api/date" }
