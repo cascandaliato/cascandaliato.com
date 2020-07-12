@@ -19,7 +19,7 @@
       "headers": { "Location": "https://goto.casca.vercel.app/api/date" }
     },
     {
-      "src": "/goto/(?<slug>[^/]+)",
+      "src": "/goto/(?!favicon\\.ico/?)(?<slug>[^/]+)",
       "status": 302,
       "headers": { "Location": "https://goto.casca.vercel.app/api/redirect/$slug" }
     },
