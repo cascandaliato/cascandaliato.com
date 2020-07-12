@@ -4,12 +4,8 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/goto",
+      "source": "/(goto(?:/.*)?)",
       "destination": "https://goto.casca.vercel.app"
-    },
-    {
-      "source": "/goto/(.*)",
-      "destination": "https://goto.casca.vercel.app/$1"
     }
   ],
   "redirects": [
