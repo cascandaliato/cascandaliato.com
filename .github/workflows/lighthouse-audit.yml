@@ -1,6 +1,8 @@
 name: Lighthouse Audit
 
-on: deployment_status
+on:
+  deployment_status:
+    state: success
 
 jobs:
   lighthouse:
