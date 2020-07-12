@@ -33,4 +33,5 @@ jobs:
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
         uses: ad-m/github-push-action@master
         with:
+          repository: 'casca/lighthouse-reports'
           github_token: ${{ secrets.GITHUB_TOKEN }}
