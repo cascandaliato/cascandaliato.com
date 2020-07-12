@@ -21,8 +21,9 @@ jobs:
           temporaryPublicStorage: true
       - name: Write File
         uses: DamianReeves/write-file-action@v1.0
-        path: ${{ env.home }}/manifest
-        contents: echo foo
+        with:
+          path: ${{ env.home }}/manifest
+          contents: echo foo
       - run: echo ${{ steps.LHCIAction.outputs.manifest }}
       - name: Archive code coverage results
         uses: actions/upload-artifact@v1
