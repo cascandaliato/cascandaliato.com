@@ -4,12 +4,12 @@
     {
       "src": "/goto(.*)/(?:index\\.html?)?",
       "status": 200,
-      "headers": { "Location": "/goto$1" }
+      "dest": "/goto$1"
     },
     {
       "src": "/goto/(.*).htm(?:l?)",
       "status": 200,
-      "headers": { "Location": "/goto/$1" }
+      "dest": "/goto/$1"
     },
     { "src": "/goto", "methods": ["GET"], "dest": "https://goto.casca.vercel.app/", "status": 200 },
     {
