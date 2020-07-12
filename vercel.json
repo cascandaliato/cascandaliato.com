@@ -3,12 +3,12 @@
   "routes": [
     {
       "src": "/goto(.*)/(?:index\\.html?)?",
-      "status": 307,
+      "status": 200,
       "headers": { "Location": "/goto$1" }
     },
     {
       "src": "/goto/(.*).htm(?:l?)",
-      "status": 307,
+      "status": 200,
       "headers": { "Location": "/goto/$1" }
     },
     { "src": "/goto", "methods": ["GET"], "dest": "https://goto.casca.vercel.app/", "status": 200 },
