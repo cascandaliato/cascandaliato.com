@@ -3,10 +3,10 @@
   "routes": [
     {
       "src": "/goto(.*)/(?:index\\.html)?",
-      "status": 302,
-      "headers": { "Location": "/goto$1" },
-      "continue": false
+      "status": 307,
+      "headers": { "Location": "/goto$1" }
     },
+
     {
       "src": "/goto/api/shorten",
       "status": 302,
