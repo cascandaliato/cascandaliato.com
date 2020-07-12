@@ -21,3 +21,7 @@ jobs:
           temporaryPublicStorage: true
       - run: echo ${{steps.LHCIAction.outputs.resultsPath}}
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
+      - uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: ${{steps.LHCIAction.outputs.resultsPath}}
