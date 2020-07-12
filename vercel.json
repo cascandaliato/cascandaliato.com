@@ -7,7 +7,7 @@
       "headers": { "Location": "/goto$1" }
     },
     {
-      "src": "/goto/(.*).html?",
+      "src": "/goto/(.*).htm(?:l?)",
       "status": 307,
       "headers": { "Location": "/goto/$1" }
     },
@@ -25,8 +25,8 @@
     },
     {
       "src": "/goto/(.*)",
-      "status": 302,
-      "headers": { "Location": "https://goto.casca.vercel.app/$1" }
+      "dest": "https://goto.casca.vercel.app/$1",
+      "status": 200
     }
   ]
 }
