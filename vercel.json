@@ -7,6 +7,11 @@
       "headers": { "Location": "/goto$1" }
     },
     {
+      "src": "/goto/(.*).html",
+      "status": 307,
+      "headers": { "Location": "/goto/$1" }
+    },
+    {
       "src": "/goto/api/shorten",
       "status": 302,
       "headers": { "Location": "https://goto.casca.vercel.app/api/shorten" }
