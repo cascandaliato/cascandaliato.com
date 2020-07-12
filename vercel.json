@@ -22,14 +22,9 @@
       "headers": { "Location": "https://goto.casca.vercel.app/api/stats" }
     },
     {
-      "src": "/goto/(css|img|js)/(.*)",
+      "src": "/goto/(favicon\\.ico|(?:(?:css|img|js)/(?:.*)))",
       "status": 302,
-      "headers": { "Location": "https://goto.casca.vercel.app/$1/$2" }
-    },
-    {
-      "src": "/goto/favicon.ico",
-      "dest": "https://goto.casca.vercel.app/favicon.ico",
-      "status": 302
+      "headers": { "Location": "https://goto.casca.vercel.app/$1" }
     },
     { "src": "/goto", "methods": ["GET"], "dest": "https://goto.casca.vercel.app/", "status": 200 },
     {
