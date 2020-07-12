@@ -1,36 +1,18 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "/goto(.*)/(?:index\\.html?)?",
-      "status": 307,
-      "headers": { "Location": "/goto$1" }
-    },
-    {
-      "src": "/goto/(.*).htm(?:l?)",
-      "status": 307,
-      "headers": { "Location": "/goto/$1" }
-    },
-    {
-      "src": "/goto",
-      "methods": ["POST"],
-      "status": 307,
-      "headers": { "Location": "https://goto.casca.vercel.app/api/date" }
-    },
-    {
-      "src": "/goto/(?!favicon\\.ico/?)(?<slug>[^/]+)",
-      "status": 302,
-      "headers": { "Location": "https://goto.casca.vercel.app/api/redirect/$slug" }
-    },
-    {
-      "src": "/goto",
-      "dest": "https://goto.casca.vercel.app",
-      "status": 200
-    },
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
     {
       "src": "/goto/(.*)",
-      "dest": "https://goto.casca.vercel.app/$1",
-      "status": 200
+      "destination": "https://goto.casca.vercel.app/$1"
+    }
+  ],
+  "redirects": [
+    {
+      "src": "/goto/(?!favicon\\.ico/?)(?<slug>[^/]+)",
+      "permanent": false,
+      "destination": "https://goto.casca.vercel.app/api/redirect/$slug"
     }
   ]
 }
