@@ -35,7 +35,7 @@
     {
       "src": "/goto/abc",
       "methods": ["POST"],
-      "status": 302,
+      "status": 307,
       "headers": { "Location": "https://goto.casca.vercel.app/api/date" }
     },
     {
