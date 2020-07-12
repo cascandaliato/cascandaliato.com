@@ -11,6 +11,18 @@
       "status": 307,
       "headers": { "Location": "/goto/$1" }
     },
+    { "src": "/goto", "methods": ["GET"], "dest": "https://goto.casca.vercel.app/", "status": 200 },
+    {
+      "src": "/goto",
+      "methods": ["POST"],
+      "status": 307,
+      "headers": { "Location": "https://goto.casca.vercel.app/api/date" }
+    },
+    {
+      "src": "/goto/(?<slug>[^/]+)",
+      "status": 302,
+      "headers": { "Location": "https://goto.casca.vercel.app/api/redirect/$slug" }
+    },
     {
       "src": "/goto/api/shorten",
       "status": 302,
@@ -25,18 +37,6 @@
       "src": "/goto/(favicon\\.ico|(?:(?:css|img|js)/(?:.*)))",
       "status": 302,
       "headers": { "Location": "https://goto.casca.vercel.app/$1" }
-    },
-    { "src": "/goto", "methods": ["GET"], "dest": "https://goto.casca.vercel.app/", "status": 200 },
-    {
-      "src": "/goto",
-      "methods": ["POST"],
-      "status": 307,
-      "headers": { "Location": "https://goto.casca.vercel.app/api/date" }
-    },
-    {
-      "src": "/goto/(?<id>[^/]+)",
-      "status": 302,
-      "headers": { "Location": "https://goto.casca.vercel.app/api/redirect/$id" }
     }
   ]
 }
