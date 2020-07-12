@@ -2,9 +2,9 @@
   "version": 2,
   "routes": [
     {
-      "src": "/goto/index.html",
+      "src": "/goto/index\\.html",
       "status": 302,
-      "headers": { "Location": "/goto" },
+      "headers": { "Location": "/goto/foobar" },
       "continue": true
     },
     {
