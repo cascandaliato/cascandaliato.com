@@ -2,13 +2,12 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/(goto(?:/.*)?)",
-      "destination": "https://goto.casca.vercel.app/$1"
-    }
-  ],
-  "redirects": [
+      "destination": "https://goto.casca.vercel.app/$1",
+      "permanent": false
+    },
     {
       "source": "/goto/((?!favicon\\.ico)[^/]+)",
       "permanent": false,
