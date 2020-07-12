@@ -28,7 +28,7 @@
       "status": 200
     },
     {
-      "src": "/goto(/.*)",
+      "src": "/goto/(.*)",
       "dest": "https://goto.casca.vercel.app/$1",
       "status": 200
     }
