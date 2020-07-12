@@ -1,4 +1,6 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "routes": [
     {
       "src": "/goto/api/shorten",
@@ -32,6 +34,12 @@
     },
     { "src": "/goto", "dest": "https://goto.casca.vercel.app/", "status": 200 },
     { "src": "/goto/", "dest": "https://goto.casca.vercel.app/", "status": 200 },
+    {
+      "src": "/goto",
+      "methods": ["POST"],
+      "status": 302,
+      "headers": { "Location": "https://goto.casca.vercel.app/api/date" }
+    },
     {
       "src": "/goto/(?<id>[^/]+)",
       "status": 302,
