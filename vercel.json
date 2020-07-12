@@ -1,6 +1,12 @@
 {
   "routes": [
     {
+      "src": "/goto(/.*)/",
+      "status": 302,
+      "headers": { "Location": "/goto$1" },
+      "continue": true
+    },
+    {
       "src": "/goto/api/shorten",
       "status": 302,
       "headers": { "Location": "https://goto.casca.vercel.app/api/shorten" }
@@ -31,12 +37,6 @@
       "status": 302
     },
     { "src": "/goto", "methods": ["GET"], "dest": "https://goto.casca.vercel.app/", "status": 200 },
-    {
-      "src": "/goto/",
-      "methods": ["GET"],
-      "dest": "https://goto.casca.vercel.app/",
-      "status": 200
-    },
     {
       "src": "/goto",
       "methods": ["POST"],
