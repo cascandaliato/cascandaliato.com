@@ -5,12 +5,16 @@ on:
     state: success
 
 jobs:
-  build-and-deploy:
+  audit:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: Audit URLs using Lighthouse 💡🏡
         uses: treosh/lighthouse-ci-action@v3
         with:
-          urls: 'https://casca.dev/'
+          urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
