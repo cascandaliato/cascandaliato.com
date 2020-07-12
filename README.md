@@ -1,5 +1,7 @@
-[![Deploy to  vercel.com](https://img.shields.io/github/deployments/casca/casca.dev/Production?label=deploy%20to%20vercel.com&logo=zeit&logoColor=black&style=flat-square)](https://vercel.com/)
-[![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m785547332-9c583e72e19f01645fd3c8a7?style=flat-square)](http://uptimerobot.com/)
+[![Hosted at vercel.com](https://img.shields.io/badge/hosted%20at-vercel.com-black?logo=zeit&logoColor=black&style=flat-square)](https://vercel.com)
+[![Powered by Next.js](https://img.shields.io/badge/powered%20by-Next.js-black?logo=Next.js&style=flat-square)](https://nextjs.org)
+[![Deploy to casca.dev](https://img.shields.io/github/deployments/casca/casca.dev/Production?label=deploy%20to%20casca.dev&logo=dependabot&style=flat-square)](https://casca.dev)
+[![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m785547332-9c583e72e19f01645fd3c8a7?style=flat-square&logo=clockify&logoColor=white)](http://uptimerobot.com)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
