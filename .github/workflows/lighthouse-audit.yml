@@ -12,6 +12,7 @@ jobs:
         with:
           repository: 'casca/lighthouse-reports'
           ref: master
+          persist-credentials: false
       - name: Audit URLs using Lighthouse 💡🏡
         id: LHCIAction
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
