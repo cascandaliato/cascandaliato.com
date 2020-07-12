@@ -12,11 +12,20 @@ jobs:
         with:
           ref: master
       - name: Audit URLs using Lighthouse 💡🏡
-        id: lhci_audit
+        id: LHCIAction
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
         uses: treosh/lighthouse-ci-action@v3
         with:
           urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
-      - run: echo ${{ steps.lhci_audit.outputs.manifest }}
+      - name: Write File
+        uses: DamianReeves/write-file-action@v1.0
+        path: ${{ env.home }}/manifest
+        content: echo foo
+      - run: echo ${{ steps.LHCIAction.outputs.manifest }}
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v1
+        with:
+          name: test
+          path: ${{ env.home }}/manifest
