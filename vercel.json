@@ -1,10 +1,16 @@
 {
+  "version": 2,
   "routes": [
     {
       "src": "/goto/",
       "status": 302,
       "headers": { "Location": "/goto" },
       "continue": true
+    },
+    {
+      "src": "/goto/(.*)/",
+      "status": 302,
+      "headers": { "Location": "/goto/$1" }
     },
     {
       "src": "/goto/api/shorten",
