@@ -1,23 +1,20 @@
 name: Lighthouse Audit
 
-on:
-  deployment_status:
-    state: success
+on: deployment_status
 
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug Action
-        uses: hmarr/debug-action@v1.0.0
-      - uses: actions/checkout@v2
-        if: github.event.deployment_status.state == 'success'
+      - name: Checkout 🛎️
+        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
+        uses: actions/checkout@v2
         with:
           ref: master
-      - name: Audit URLs using Lighthouse
-        if: github.event.deployment_status.state == 'success'
+      - name: Audit URLs using Lighthouse 💡🏡
+        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
         uses: treosh/lighthouse-ci-action@v3
         with:
-          urls: 'https://casca.dev/'
+          urls: 'https://casca.dev'
           uploadArtifacts: true
           temporaryPublicStorage: true
