@@ -17,5 +17,9 @@ fields:
     time_format: 
     display_utc: false
   default: now
+- name: published
+  type: boolean
+  label: Published
 pages:
+- posts/foo-bar-baz.md
 - posts/foo-bar.md
