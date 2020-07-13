@@ -13,7 +13,7 @@ upload_dir: static/images
 public_path: "/images"
 front_matter_path: ''
 use_front_matter_path: false
-file_template: ":filename:"
+file_template: ":year:-:month:-:filename:"
 build:
   preview_output_directory: ".next"
   install_dependencies_command: yarn install
