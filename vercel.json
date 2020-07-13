@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "clearnUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
       "source": "/(goto(?:/.*)?)",
@@ -9,8 +11,11 @@
   "redirects": [
     {
       "source": "/goto/((?!favicon\\.ico)[^/]+)",
-      "permanent": false,
       "destination": "https://goto.casca.vercel.app/api/redirect/$1"
+    },
+    {
+      "source": "/(cms|admin)",
+      "destination": "/admin/#"
     }
   ]
 }
