@@ -1,0 +1,18 @@
+name: foo.software/lighthouse
+
+on: deployment_status
+
+jobs:
+  lighthouse-remote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
+        uses: actions/checkout@master
+      - name: Run Remote Lighthouse  💡🏡
+        if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
+        uses: foo-software/lighthouse-check-action@master
+        id: lighthouseCheck
+        with:
+          apiToken: ${{ secrets.FOO_SOFTWARE_API_TOKEN }}
+          urls: 'https://casca.dev'
