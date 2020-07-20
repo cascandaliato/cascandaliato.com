@@ -15,4 +15,4 @@ jobs:
         id: lighthouseCheck
         with:
           apiToken: ${{ secrets.FOO_SOFTWARE_API_TOKEN }}
-          urls: 'https://casca.dev'
+          urls: '5f15683278a37f0024c43160'
