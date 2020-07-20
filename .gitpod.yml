@@ -1,0 +1,24 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - init: yarn install
+    command: yarn dev
+    name: yarn dev
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    addCheck: true
+    addComment: false
+
+vscode:
+  extensions:
+    - msjsdiag.debugger-for-chrome@4.12.6:IdQBlCQEnixzHAOkHC36ew==
+    - esbenp.prettier-vscode@5.1.0:M3Ww4EayZWhGCgk49C1Ldw==
