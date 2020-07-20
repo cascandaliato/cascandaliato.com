@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "forestry": "next",
-    "dev": "next dev",
     "build": "next build",
+    "deploy-preview": "vercel --token $VERCEL_TOKEN",
+    "dev": "next dev",
+    "forestry": "next",
     "start": "next start"
   },
   "dependencies": {
