@@ -20,6 +20,10 @@
     {
       "source": "/(cms|admin)",
       "destination": "/admin/cms"
+    },
+    {
+      "source": "/repo/(.*)",
+      "destination": "https://github.com/casca/$1"
     }
   ]
 }
