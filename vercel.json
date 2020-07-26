@@ -14,7 +14,7 @@
       "destination": "https://goto.casca.vercel.app/api/$1"
     },
     {
-      "source": "/goto/((?!favicon\\.ico)[^/]+)",
+      "source": "/goto/((?!favicon)[^/]+)",
       "destination": "https://goto.casca.vercel.app/api/redirect/$1"
     },
     {
