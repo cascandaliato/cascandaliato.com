@@ -10,8 +10,8 @@
   ],
   "redirects": [
     {
-      "source": "/goto/api/(.*)",
-      "destination": "https://goto.casca.vercel.app/api/$1"
+      "source": "/(goto|covid)/api/(.*)",
+      "destination": "https://$1.casca.vercel.app/api/$2"
     },
     {
       "source": "/goto/((?!favicon)[^/]+)",
