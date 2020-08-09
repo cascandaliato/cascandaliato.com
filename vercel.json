@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/(goto|covid)((?!/api)(?:/.*)?)",
-      "destination": "https://$2.casca.vercel.app/$1"
+      "destination": "https://$1.casca.vercel.app/$2"
     }
   ],
   "redirects": [
