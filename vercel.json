@@ -4,7 +4,7 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/((goto|covid)(?!/api)(?:/.*)?)",
+      "source": "/(goto|covid)((?!/api)(?:/.*)?)",
       "destination": "https://$2.casca.vercel.app/$1"
     }
   ],
