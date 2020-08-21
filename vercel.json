@@ -4,13 +4,13 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/(goto|covid)((?!/api)(?:/.*)?)",
+      "source": "/(.*)((?!/api)(?:/.*)?)",
       "destination": "https://$1.casca.dev/$1$2"
     }
   ],
   "redirects": [
     {
-      "source": "/(goto|covid)/api/(.*)",
+      "source": "/(.*)/api/(.*)",
       "destination": "https://$1.casca.dev/api/$2"
     },
     {
