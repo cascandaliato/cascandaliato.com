@@ -12,7 +12,7 @@ jobs:
       - name: Run Remote Lighthouse  💡🏡
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
         uses: foo-software/lighthouse-check-action@v2.0.5
-        id: lighthouseCheck
+        id: githubCi
         with:
           apiToken: ${{ secrets.FOO_SOFTWARE_API_TOKEN }}
           urls: ${{ secrets.FOO_SOFTWARE_PAGE_API_TOKEN }}
