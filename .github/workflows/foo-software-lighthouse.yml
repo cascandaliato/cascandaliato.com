@@ -8,12 +8,11 @@ jobs:
     steps:
       - name: Checkout 🛎️
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: Run Remote Lighthouse  💡🏡
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-        uses: foo-software/lighthouse-check-action@master
+        uses: foo-software/lighthouse-check-action@v2
         id: lighthouseCheck
         with:
-          urls: '5f15683278a37f0024c43160'
-        env:
-          LHCI_GITHUB_TOKEN: ${{ secrets.FOO_SOFTWARE_API_TOKEN }}
+          apiToken: ${{ secrets.FOO_SOFTWARE_API_TOKEN }}
+          urls: ${{ secrets.FOO_SOFTWARE_PAGE_API_TOKEN }}
