@@ -14,5 +14,6 @@ jobs:
         uses: foo-software/lighthouse-check-action@master
         id: lighthouseCheck
         with:
-          apiToken: ${{ secrets.FOO_SOFTWARE_API_TOKEN }}
           urls: '5f15683278a37f0024c43160'
+        env:
+          LHCI_GITHUB_TOKEN: ${{ secrets.FOO_SOFTWARE_API_TOKEN }}
