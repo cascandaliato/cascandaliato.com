@@ -10,6 +10,10 @@
   ],
   "redirects": [
     {
+      "source": "/covid-notebook",
+      "destination": "https://github.com/casca/covid19-notebook#readme"
+    },
+    {
       "source": "/(goto|covid)/api/(.*)",
       "destination": "https://$1.casca.dev/api/$2"
     },
