@@ -11,7 +11,7 @@
   "redirects": [
     {
       "source": "/covid-notebook",
-      "destination": "https://github.com/casca/covid19-notebook#readme"
+      "destination": "https://github.com/cascandaliato/covid19-notebook#readme"
     },
     {
       "source": "/(goto|covid)/api/(.*)",
@@ -27,7 +27,7 @@
     },
     {
       "source": "/repo/(.*)",
-      "destination": "https://github.com/casca/$1"
+      "destination": "https://github.com/cascandaliato/$1"
     }
   ]
 }
