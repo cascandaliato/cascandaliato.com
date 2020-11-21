@@ -5,5 +5,7 @@
 @layer components {
   .btn-blue {
     @apply bg-blue-500;
+    transition: all 0.5s;
+    user-select:none;
   }
 }
