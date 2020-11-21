@@ -3,16 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "npm-run-all build:tailwind build:next",
+    "build:next": "next build",
     "deploy-preview": "vercel --token $VERCEL_TOKEN",
-    "dev": "next dev",
+    "dev": "npm-run-all -l build:tailwind --parallel watch:tailwind dev:next",
+    "dev:next": "next dev",
     "forestry": "next",
-    "start": "next start"
+    "start": "next start",
+    "watch:tailwind": "chokidar tailwind.config.js styles/tailwind.css -c \"yarn build:tailwind\"",
+    "build:tailwind": "tailwindcss-cli build styles/tailwind.css --no-autoprefixer -c tailwind.config.js -o tailwind.output.css"
   },
   "dependencies": {
+    "chokidar-cli": "^2.1.0",
     "next": "^10.0.0",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "tailwindcss-cli": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.9",
