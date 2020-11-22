@@ -1,11 +1,8 @@
-import {
-  faGithub,
-  faTwitter,
-  IconDefinition,
-} from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { IconDefinition } from '@fortawesome/fontawesome-common-types'
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Head from 'next/head'
 import Image from 'next/image'
 
 type ContactInfo = { icon: IconDefinition; text: string; link: string }
@@ -30,22 +27,6 @@ const contactInfo: ContactInfo[] = [
 
 const Home: React.FC<{}> = () => (
   <div className="w-full h-screen bg-gradient-to-b sm:bg-gradient-to-r from-blue-600 to-lightBlue-500 sm:from-blue-600 sm:via-lightBlue-500 sm:to-lightBlue-400 flex items-center justify-center text-white font-lato">
-    <Head>
-      <title>Carmelo Scandaliato</title>
-      <link rel="icon" href="/favicon.ico" />
-      <link
-        rel="icon"
-        type="image/png"
-        href="favicon-32x32.png"
-        sizes="32x32"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        href="favicon-16x16.png"
-        sizes="16x16"
-      />
-    </Head>
     <main className="flex flex-col sm:flex-row items-center">
       <Image
         src="/me.jpg"
@@ -66,11 +47,12 @@ const Home: React.FC<{}> = () => (
 
         <ul className="mt-5 sm:mt-3">
           {contactInfo.map(({ icon, text, link }) => (
-            <p className="mt-2 sm:mt-4 flex items-stretch" key={text}>
-              <div className="w-6 sm:w-8 flex items-center">
-                <FontAwesomeIcon icon={icon} className="flex-grow text-white" />
-              </div>
-              <p className="ml-2 mb-0.5 sm:mb-0 sm:ml-3 sm:text-lg md:text-xl">
+            <li className="mt-2 sm:mt-4 flex items-center" key={text}>
+              <FontAwesomeIcon
+                icon={icon}
+                className="h-full text-white text-xl sm:text-3xl"
+              />
+              <p className="ml-2 mb-0.5 sm:ml-3 sm:text-lg md:text-xl">
                 <a
                   href={link}
                   className="hover:underline hover:text-white text-blueGray-100"
@@ -78,7 +60,7 @@ const Home: React.FC<{}> = () => (
                   {text}
                 </a>
               </p>
-            </p>
+            </li>
           ))}
         </ul>
       </section>
