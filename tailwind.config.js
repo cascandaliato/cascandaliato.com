@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: {
     enabled: true,
@@ -12,9 +14,30 @@ module.exports = {
       './components/**/*.tsx',
     ],
   },
-  darkMode: 'class',
+  darkMode: false,
   theme: {
-    extend: {},
+    colors,
+    extend: {
+      fontFamily: {
+        lato: [
+          'Lato',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          '"Noto Sans"',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
+        ],
+      },
+    },
   },
   variants: {},
   plugins: [],

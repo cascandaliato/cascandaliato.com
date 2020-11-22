@@ -6,7 +6,7 @@
     "build": "npm-run-all build-prod:tailwind build:next",
     "build:next": "next build",
     "deploy-preview": "vercel --token $VERCEL_TOKEN",
-    "dev": "npm-run-all -l build:tailwind --parallel watch:tailwind dev:next",
+    "dev": "npm-run-all -l build-dev:tailwind --parallel watch:tailwind dev:next",
     "dev:next": "next dev",
     "forestry": "next",
     "start": "next start",
@@ -15,6 +15,10 @@
     "build-prod:tailwind": "tailwindcss-cli build styles/tailwind.css --no-autoprefixer -c tailwind.config.js -o tailwind.output.css"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.12",
     "autoprefixer": "^10.0.2",
     "chokidar-cli": "^2.1.0",
     "next": "^10.0.0",
