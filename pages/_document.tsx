@@ -17,7 +17,6 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="description" content="Carmelo Scandaliato's home page" />
-          <title>Carmelo Scandaliato</title>
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="icon"

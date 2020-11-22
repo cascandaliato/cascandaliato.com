@@ -3,6 +3,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Head from 'next/head'
 import Image from 'next/image'
 
 type ContactInfo = { icon: IconDefinition; text: string; link: string }
@@ -27,6 +28,9 @@ const contactInfo: ContactInfo[] = [
 
 const Home: React.FC<{}> = () => (
   <div className="w-full h-screen bg-gradient-to-b sm:bg-gradient-to-r from-blue-600 to-lightBlue-500 sm:from-blue-600 sm:via-lightBlue-500 sm:to-lightBlue-400 flex items-center justify-center text-white font-lato">
+    <Head>
+      <title>Carmelo Scandaliato</title>
+    </Head>
     <main className="flex flex-col sm:flex-row items-center">
       <Image
         src="/me.jpg"
