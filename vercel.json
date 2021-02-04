@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/(goto|covid)((?!/api)(?:/.*)?)",
-      "destination": "https://$1.casca.dev/$1$2"
+      "destination": "https://$1.cascandaliato.com/$1$2"
     }
   ],
   "redirects": [
@@ -15,11 +15,11 @@
     },
     {
       "source": "/(goto|covid)/api/(.*)",
-      "destination": "https://$1.casca.dev/api/$2"
+      "destination": "https://$1.cascandaliato.com/api/$2"
     },
     {
       "source": "/goto/((?!favicon)[^/]+)",
-      "destination": "https://goto.casca.dev/api/redirect/$1"
+      "destination": "https://goto.cascandaliato.com/api/redirect/$1"
     },
     {
       "source": "/(cms|admin)",
