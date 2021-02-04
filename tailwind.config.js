@@ -1,23 +1,12 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: {
-    enabled: true,
-    content: [
-      './pages/**/*.js',
-      './pages/**/*.jsx',
-      './pages/**/*.ts',
-      './pages/**/*.tsx',
-      './components/**/*.js',
-      './components/**/*.jsx',
-      './components/**/*.ts',
-      './components/**/*.tsx',
-    ],
-  },
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false,
   theme: {
     colors,
     extend: {
+      colors: { transparent: 'transparent' },
       fontFamily: {
         lato: [
           'Lato',
@@ -39,6 +28,15 @@ module.exports = {
       },
     },
   },
-  variants: { extend: { margin: ['first'] } },
+  variants: {
+    extend: {
+      borderColor: ['focus-visible'],
+      borderRadius: ['focus-visible'],
+      borderStyle: ['focus-visible'],
+      borderWidth: ['focus-visible'],
+      margin: ['first'],
+      position: ['focus-visible'],
+    },
+  },
   plugins: [],
 }
