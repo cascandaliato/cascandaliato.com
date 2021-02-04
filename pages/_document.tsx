@@ -6,6 +6,9 @@ import Document, {
   NextScript,
 } from 'next/document'
 
+const GOOGLE_FONTS_LATO =
+  'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&text=.%2F%40CESabcdefghilmnorstuw'
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -17,6 +20,17 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="description" content="Carmelo Scandaliato's home page" />
+          {/* https://csswizardry.com/2020/05/the-fastest-google-fonts/ */}
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            rel="preload"
+            as="style"
+            href={`${GOOGLE_FONTS_LATO}&display=swap`}
+          />
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="icon"
