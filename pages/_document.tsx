@@ -7,7 +7,7 @@ import Document, {
 } from 'next/document'
 
 const FONT_FACE_LATO =
-  "@font-face{font-family:Lato;font-style:normal;font-weight:400;font-display:swap;src:local('Lato'),url(/lato-400.woff2) format('woff2')}@font-face{font-family:Lato;font-style:normal;font-weight:700;font-display:swap;src:local('Lato'),url(/lato-700.woff2) format('woff2')}"
+  "@font-face{font-family:Lato;font-style:normal;font-weight:400;font-display:block;src:local('Lato'),url(/lato-400.woff2) format('woff2')}@font-face{font-family:Lato;font-style:normal;font-weight:700;font-display:block;src:local('Lato'),url(/lato-700.woff2) format('woff2')}"
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
