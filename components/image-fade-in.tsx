@@ -56,7 +56,7 @@ const ImageFadeIn: React.FC<
           transition: `opacity ${Math.round(durationMs / 1000)}s`,
         }}
       />
-      <noscript>
+      {/* <noscript>
         <img
           src={src}
           width={width}
@@ -65,7 +65,7 @@ const ImageFadeIn: React.FC<
           {...props}
           style={{ transform: 'rotate(0)' }}
         />
-      </noscript>
+      </noscript> */}
     </div>
   )
 }
