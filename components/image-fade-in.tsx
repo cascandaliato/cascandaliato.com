@@ -1,4 +1,10 @@
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
+
+enum State {
+  Disabled,
+  ImageLoading,
+  ImageLoaded,
+}
 
 const ImageFadeIn: React.FC<
   {
@@ -23,54 +29,62 @@ const ImageFadeIn: React.FC<
   durationMs = 500,
   ...props
 }) => {
-  const imageRef = useRef<HTMLImageElement>(null)
-  const [imageLoaded, setImageLoaded] = useState(false)
+  const [state, setState] = useState<State>(State.Disabled)
+  const fadingEnabled = state !== State.Disabled
+  const imageLoaded = state === State.ImageLoaded
+
+  const imgRenderedHandler = useCallback((imgEl) => {
+    const imgLoadedHandler = () => setState(State.ImageLoaded)
+    imgEl.addEventListener('load', () => {
+      imgLoadedHandler()
+      imgEl.removeEventListener('load', imgLoadedHandler)
+    })
+
+    imgEl.src = src
+    if (srcSet) imgEl.srcset = srcSet
+  }, [])
 
   useEffect(() => {
-    if (imageRef.current === null) return
-
-    const imgLoadHandler = () => setImageLoaded(true)
-
-    imageRef.current.addEventListener('load', imgLoadHandler)
-    imageRef.current.src = src
-    if (srcSet) imageRef.current.srcset = srcSet
-
-    return () => imageRef.current?.removeEventListener('load', imgLoadHandler)
-  }, [imageRef])
+    setState(State.ImageLoading)
+  }, [])
 
   return (
     <div style={{ position: 'relative', width, height, zIndex: 0 }}>
-      <div
-        className="image-placeholder"
-        style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          boxSizing: 'border-box',
-          opacity: imageLoaded ? 0 : 1,
-          transition: `opacity ${Math.round(durationMs / 1000)}s`,
-          zIndex: 0,
-        }}
-      >
-        {placeholder}
-      </div>
-      <img
-        ref={imageRef}
-        {...props}
-        src={undefined}
-        srcSet={undefined}
-        width={width}
-        height={height}
-        decoding="async"
-        style={{
-          ...props.style,
-          position: 'absolute',
-          opacity: imageLoaded ? 1 : 0,
-          transition: `opacity ${Math.round(durationMs / 1000)}s`,
-        }}
-      />
+      {fadingEnabled && (
+        <>
+          <div
+            className="image-placeholder"
+            style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              boxSizing: 'border-box',
+              opacity: imageLoaded ? 0 : 1,
+              transition: `opacity ${Math.round(durationMs / 1000)}s`,
+              zIndex: 0,
+            }}
+          >
+            {placeholder}
+          </div>
+          <img
+            ref={imgRenderedHandler}
+            {...props}
+            src={undefined}
+            srcSet={undefined}
+            width={width}
+            height={height}
+            decoding="async"
+            style={{
+              ...props.style,
+              position: 'absolute',
+              opacity: imageLoaded ? 1 : 0,
+              transition: `opacity ${Math.round(durationMs / 1000)}s`,
+            }}
+          />
+        </>
+      )}
       <noscript>
         <style
           dangerouslySetInnerHTML={{
