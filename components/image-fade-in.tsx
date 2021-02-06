@@ -23,25 +23,25 @@ const ImageFadeIn: React.FC<
   durationMs = 500,
   ...props
 }) => {
-  const fadingImage = useRef<HTMLImageElement>(null)
-  const [loaded, setLoaded] = useState(false)
+  const imageRef = useRef<HTMLImageElement>(null)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
-    if (fadingImage.current === null) return
+    if (imageRef.current === null) return
 
-    const imgLoadHandler = () => setLoaded(true)
+    const imgLoadHandler = () => setImageLoaded(true)
 
-    fadingImage.current.addEventListener('load', imgLoadHandler)
-    fadingImage.current.src = src
-    if (srcSet) fadingImage.current.srcset = srcSet
+    imageRef.current.addEventListener('load', imgLoadHandler)
+    imageRef.current.src = src
+    if (srcSet) imageRef.current.srcset = srcSet
 
-    return () =>
-      fadingImage.current?.removeEventListener('load', imgLoadHandler)
-  }, [fadingImage])
+    return () => imageRef.current?.removeEventListener('load', imgLoadHandler)
+  }, [imageRef])
 
   return (
     <div style={{ position: 'relative', width, height, zIndex: 0 }}>
       <div
+        className="image-placeholder"
         style={{
           position: 'absolute',
           top: 0,
@@ -49,7 +49,7 @@ const ImageFadeIn: React.FC<
           left: 0,
           right: 0,
           boxSizing: 'border-box',
-          opacity: loaded ? 0 : 1,
+          opacity: imageLoaded ? 0 : 1,
           transition: `opacity ${Math.round(durationMs / 1000)}s`,
           zIndex: 0,
         }}
@@ -57,7 +57,7 @@ const ImageFadeIn: React.FC<
         {placeholder}
       </div>
       <img
-        ref={fadingImage}
+        ref={imageRef}
         {...props}
         src={undefined}
         srcSet={undefined}
@@ -67,11 +67,16 @@ const ImageFadeIn: React.FC<
         style={{
           ...props.style,
           position: 'absolute',
-          opacity: loaded ? 1 : 0,
+          opacity: imageLoaded ? 1 : 0,
           transition: `opacity ${Math.round(durationMs / 1000)}s`,
         }}
       />
       <noscript>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: '.image-placeholder{display:none}',
+          }}
+        ></style>
         <img
           src={src}
           width={width}
