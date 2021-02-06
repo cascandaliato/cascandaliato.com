@@ -9,7 +9,7 @@ const profileImage: (size: number, transform?: string) => string = (
 ) =>
   `https://res.cloudinary.com/cascandaliato/image/upload/w_${size},h_${size},f_jpg,q_75${
     transform ? ',' + transform : ''
-  }/me.png`
+  }/carmelo`
 
 const Home: React.FC<{}> = () => (
   <div className="w-full h-screen bg-gradient-to-b sm:bg-gradient-to-r from-blue-600 to-lightBlue-500 sm:from-blue-600 sm:via-lightBlue-500 sm:to-lightBlue-400 flex items-center justify-center text-white font-lato">
