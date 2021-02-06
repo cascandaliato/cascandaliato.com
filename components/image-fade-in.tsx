@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 
 const ImageFadeIn: React.FC<
   {
@@ -14,18 +14,30 @@ const ImageFadeIn: React.FC<
     >,
     'placeholder'
   >
-> = ({ src, width, height, placeholder, durationMs = 500, ...props }) => {
+> = ({
+  src,
+  srcSet,
+  width,
+  height,
+  placeholder,
+  durationMs = 500,
+  ...props
+}) => {
+  const fadingImage = useRef<HTMLImageElement>(null)
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
+    if (fadingImage.current === null) return
+
     const imgLoadHandler = () => setLoaded(true)
 
-    const img = new window.Image()
-    img.addEventListener('load', imgLoadHandler)
-    img.src = src
+    fadingImage.current.addEventListener('load', imgLoadHandler)
+    fadingImage.current.src = src
+    if (srcSet) fadingImage.current.srcset = srcSet
 
-    return () => img.removeEventListener('load', imgLoadHandler)
-  }, [])
+    return () =>
+      fadingImage.current?.removeEventListener('load', imgLoadHandler)
+  }, [fadingImage])
 
   return (
     <div style={{ position: 'relative', width, height, zIndex: 0 }}>
@@ -45,27 +57,30 @@ const ImageFadeIn: React.FC<
         {placeholder}
       </div>
       <img
-        src={src}
+        ref={fadingImage}
+        {...props}
+        src={undefined}
+        srcSet={undefined}
         width={width}
         height={height}
         decoding="async"
-        {...props}
         style={{
+          ...props.style,
           position: 'absolute',
           opacity: loaded ? 1 : 0,
           transition: `opacity ${Math.round(durationMs / 1000)}s`,
         }}
       />
-      {/* <noscript>
+      <noscript>
         <img
           src={src}
           width={width}
           height={height}
           decoding="async"
           {...props}
-          style={{ transform: 'rotate(0)' }}
+          style={{ ...props.style, transform: 'rotate(0)' }}
         />
-      </noscript> */}
+      </noscript>
     </div>
   )
 }
