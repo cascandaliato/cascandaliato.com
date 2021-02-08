@@ -13,6 +13,7 @@ const ImageFadeIn: React.FC<
     height: number
     placeholder?: ReactNode
     durationMs?: number
+    containerClassName?: string
   } & Omit<
     React.DetailedHTMLProps<
       React.ImgHTMLAttributes<HTMLImageElement>,
@@ -27,6 +28,7 @@ const ImageFadeIn: React.FC<
   height,
   placeholder,
   durationMs = 500,
+  containerClassName,
   ...props
 }) => {
   const [state, setState] = useState<State>(State.Disabled)
@@ -49,7 +51,14 @@ const ImageFadeIn: React.FC<
   }, [])
 
   return (
-    <div style={{ position: 'relative', width, height, zIndex: 0 }}>
+    <div
+      style={{
+        position: 'relative',
+        width,
+        height,
+      }}
+      className={containerClassName}
+    >
       {fadingEnabled && (
         <>
           <div
@@ -60,10 +69,8 @@ const ImageFadeIn: React.FC<
               bottom: 0,
               left: 0,
               right: 0,
-              boxSizing: 'border-box',
               opacity: imageLoaded ? 0 : 1,
-              transition: `opacity ${Math.round(durationMs / 1000)}s`,
-              zIndex: 0,
+              // transition: `opacity ${Math.round(durationMs / 100) / 10}s`,
             }}
           >
             {placeholder}
@@ -75,12 +82,13 @@ const ImageFadeIn: React.FC<
             srcSet={undefined}
             width={width}
             height={height}
-            decoding="async"
             style={{
               ...props.style,
-              position: 'absolute',
               opacity: imageLoaded ? 1 : 0,
-              transition: `opacity ${Math.round(durationMs / 1000)}s`,
+              // opacity: 0,
+              filter: imageLoaded ? 'blur(0)' : 'blur(0.8rem)',
+              transition: `filter ${Math.round(durationMs / 100) / 10}s linear`,
+              transitionTimingFunction: 'steps(30,end)',
             }}
           />
         </>
@@ -97,7 +105,7 @@ const ImageFadeIn: React.FC<
           height={height}
           decoding="async"
           {...props}
-          style={{ ...props.style, transform: 'rotate(0)' }}
+          style={{ ...props.style }}
         />
       </noscript>
     </div>

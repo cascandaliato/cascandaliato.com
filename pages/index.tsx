@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import ImageFadeIn from '../components/image-fade-in'
 import ContactInfo from '../components/contact-info'
-import ProfilePlaceholder from '../components/profile-placeholder'
+import ImageFadeIn from '../components/image-fade-in'
 
 const profileImage: (size: number, transform?: string) => string = (
   size,
@@ -21,12 +20,22 @@ const Home: React.FC<{}> = () => (
         src={profileImage(256)}
         // prettier-ignore
         srcSet={`${profileImage(256)} 1x, ${profileImage(640, 'dpr_2.0')} 2x, ${profileImage(1024, 'dpr_3.0')} 3x`}
-        alt="Picture of Carmelo Scandaliato"
+        alt="Carmelo Scandaliato"
         width={216}
         height={216}
-        placeholder={<ProfilePlaceholder className="fill-current text-white" />}
+        placeholder={
+          <img
+            aria-hidden="true"
+            alt=""
+            src="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAwUGCP/EACUQAAECBQQBBQAAAAAAAAAAAAECAwAFERIhBAYHMRQiNEFSov/EABUBAQEAAAAAAAAAAAAAAAAAAAMG/8QAHBEAAgICAwAAAAAAAAAAAAAAAQIAYQQFETFR/9oADAMBAAIRAxEAPwBnOuWTN9VLpx7NjSvo9NHVBBBTdlJCSCm85B6GO4ulc5bHqaTpoj4JQvP5jM+7FK8ptFxtvrSuOzAU6h4JADrgFPsYEOyXKPI0AAXh+qoH2f/Z"
+            style={{
+              filter: 'blur(0.8rem)',
+            }}
+            className="w-full h-full rounded-full"
+          />
+        }
         durationMs={500}
-        className="rounded-full select-none"
+        containerClassName="rounded-full overflow-hidden select-none"
       />
       <section className="mt-6 sm:mt-0 sm:ml-6 sm:pl-6 sm:border-l-2 border-white flex flex-col items-center sm:items-start">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center sm:text-left select-all">
