@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Run Remote Lighthouse  💡🏡
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-        uses: foo-software/lighthouse-check-action@v2.0.5
+        uses: foo-software/lighthouse-check-action@v2.0.6
         with:
           apiToken: ${{ secrets.FOO_SOFTWARE_API_TOKEN }}
           urls: ${{ secrets.FOO_SOFTWARE_PAGE_API_TOKEN }}
