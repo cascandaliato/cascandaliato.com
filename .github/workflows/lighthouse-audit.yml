@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Checkout 🛎️
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: 'cascandaliato/lighthouse-reports'
           ref: master
