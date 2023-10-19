@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Checkout 🛎️
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Run Remote Lighthouse  💡🏡
         if: github.event.deployment.environment == 'Production' && github.event.deployment_status.state == 'success'
         uses: foo-software/lighthouse-check-action@v2.0.5
